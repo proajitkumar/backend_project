@@ -3,3 +3,4 @@ package-lock.json
 
 .env
 combined.log
+src/config/config.json
