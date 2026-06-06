@@ -47,7 +47,16 @@ Lets take a look inside `src` folder
  }
 
  ```
+ - Go inside `src` folder and execute following command:
+ ```
+  npx sequelize init
+ ```
+ - By executing this command you will get `migration` and `seeders` folder along for `config.json` inside `config` the folder.
 
  - If you are setting up your development environment, then write the username of your db, password of your db and in dialect mention wherever db you are using for ex: mysql, mariadb etc
  - If you are setting up test or prop environment, make sure you also replace the host with the hosted db url.
- 
+
+ - To run the server execute
+ ```
+ npm run dev
+ ```
