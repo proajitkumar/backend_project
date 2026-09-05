@@ -44,6 +44,10 @@ class CrudRepository {
         id: id,
       },
     });
+    if(!response || !response?.length || !response?.[0]) {
+      throw new AppError('Not able to find the data', StatusCodes.NOT_FOUND)
+    }
+    return response;
   }
 }
 
