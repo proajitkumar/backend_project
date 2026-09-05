@@ -55,7 +55,8 @@ async function getCity(id) {
 
 async function destroyCity(id) {
   try {
-    const city = await cityRepository.destroy(id);
+    const response = await cityRepository.destroy(id);
+    return response;
   } catch (error) {
     if(error.statusCode == StatusCodes.NOT_FOUND) {
       throw new AppError("City you requested to delete is not present", StatusCodes.NOT_FOUND);
@@ -67,9 +68,25 @@ async function destroyCity(id) {
   }
 }
 
+async function updateCity(id, data) {
+  try {
+    const response = await cityRepository.update(id, data);
+    return response
+  } catch (error) {
+    if(error.statusCode == StatusCodes.NOT_FOUND) {
+      throw new AppError("City you requested to update is not present", StatusCodes.NOT_FOUND);
+    }
+     throw new AppError(
+      "Cannot update City",
+      StatusCodes.INTERNAL_SERVER_ERROR,
+    );
+  }
+}
+
 module.exports = {
   createCity,
   getCities,
   getCity,
-  destroyCity
+  destroyCity,
+  updateCity
 };
