@@ -10,5 +10,7 @@ router.post(
   FlightController.createFlight,
 );
 
+// /api/v1/flights?trips=BOM-DEL  GET
+router.get("/", FlightController.getAllFlights);
 
 module.exports = router;
